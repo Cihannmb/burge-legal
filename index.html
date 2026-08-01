@@ -31,6 +31,11 @@
       border-bottom: 1px solid #e5e5e5;
       padding-bottom: 0.3rem;
     }
+    h3 {
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
     .meta {
       color: #666;
       font-size: 0.9rem;
@@ -50,13 +55,35 @@
       border-radius: 12px;
       padding: 1rem 1.25rem;
     }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.5rem 0.6rem;
+      border-bottom: 1px solid #e5e5e5;
+      vertical-align: top;
+    }
+    th {
+      font-weight: 600;
+color: #444;
+    }
+    .wrap {
+      overflow-x: auto;
+    }
     @media (prefers-color-scheme: dark) {
       body {
         color: #eee;
         background: #111;
       }
-      h2 {
+      h2, th, td {
         border-bottom-color: #333;
+      }
+      th {
+        color: #bbb;
       }
       .meta {
         color: #999;
@@ -70,110 +97,282 @@
 <body>
 <main>
   <h1>Burge — Privacy Policy</h1>
-  <p class="meta">Effective date: July 6, 2026 · Developer: Cihan Mert Bayam</p>
+  <p class="meta">
+    Effective date: July 30, 2026 · Last updated: July 30, 2026<br />
+    Data controller: Cihan Mert Bayam, individual developer, Türkiye ·
+    <a href="mailto:burgeapp@gmail.com">burgeapp@gmail.com</a>
+  </p>
 
   <div class="summary">
-    <strong>Summary:</strong>
+    <strong>The short version:</strong>
     <ul>
-      <li>No account, no tracking, no ads, no sale of data.</li>
-      <li>The name you enter at onboarding <strong>never leaves your device</strong>.</li>
-      <li>Searches are logged under a random anonymous tag (e.g. <em>swift-fox-42</em>) that cannot be linked to you.</li>
-      <li>Your precise GPS coordinates are used only to run your search — they are <strong>not stored on our servers</strong>.</li>
+      <li>No account, no sign-up, no advertising, no tracking, no data sold — ever.</li>
+      <li>The name you enter when you first open Burge <strong>never leaves your device</strong>.</li>
+      <li>We keep a log of <em>what</em> was searched and <em>roughly where</em>, tied only to a random nickname like <em>swift-fox-42</em> that is not linked to you.</li>
+      <li>Your exact GPS coordinates are used to run the search and are <strong>never stored on our servers</strong>.</li>
+      <li>You can erase everything we hold, instantly, from inside the app: <strong>Profile → Delete my data</strong>.</li>
     </ul>
   </div>
 
-  <h2>1. What Burge does</h2>
+  <h2>1. What Burge is</h2>
   <p>
-    Burge is a mobile app that shows you a short list of the best-rated places
-    (cafés, restaurants, bars…) around a location you choose. This policy
-    explains what data the app collects, how it is used, and the choices you
-    have.
+    Burge is an iOS app that shows a short, curated list of the best-rated
+    places (cafés, restaurants, bars and similar) around a location you choose.
+    It has two search experiences: the main search, which returns at most five
+    highly-rated places, and <em>Burge It</em>, which surfaces newly opened
+    places that the main search filters out. This policy covers both.
+  </p>
+  <p>
+    Burge does not require an account and does not use any advertising,
+    attribution, or third-party analytics SDKs.
   </p>
 
-  <h2>2. Data we collect</h2>
-  <p><strong>Search logs.</strong> When you run a search, we record:</p>
+  <h2>2. What we collect</h2>
+
+  <h3>2.1 Search logs (stored on our server)</h3>
+  <p>Each time a search actually runs, we record one row containing:</p>
+  <div class="wrap">
+    <table>
+      <tr><th>Field</th><th>Example</th><th>Why</th></tr>
+      <tr>
+        <td>The text you searched for</td>
+        <td>“cafe”</td>
+        <td>To find which searches return poor results</td>
+      </tr>
+      <tr>
+        <td>The area name shown in the app</td>
+        <td>“Rathmines, Dublin”</td>
+        <td>To see which areas have weak coverage. This is a
+          neighbourhood-level name — <strong>not</strong> your coordinates</td>
+      </tr>
+      <tr>
+        <td>Which search you used</td>
+        <td>Near&nbsp;Me / Hunter / Burge&nbsp;It</td>
+        <td>To compare how the two experiences perform</td>
+      </tr>
+      <tr>
+        <td>How many results came back and how strict the filter had to be</td>
+        <td>5, “strict”</td>
+        <td>To tune the quality filter</td>
+      </tr>
+      <tr>
+        <td>Google place identifiers of the results shown</td>
+        <td><code>ChIJ…</code></td>
+        <td>To check result quality. Identifiers only — we never store place
+          names, ratings, addresses or photos</td>
+      </tr>
+      <tr>
+        <td>A random nickname generated on your device</td>
+        <td><em>swift-fox-42</em></td>
+        <td>To tell one device’s searches apart from another’s</td>
+      </tr>
+    </table>
+  </div>
+  <p>
+    The nickname is generated randomly on your device. It is not derived from
+    your name, your email, your phone number, or any device or advertising
+    identifier, and we have no way to connect it to your identity. You can see
+    it yourself in the app as “Your ID”.
+  </p>
+  <p>
+    If a search result is served from the app’s local cache, no new row is
+    written.
+  </p>
+
+  <h3>2.2 Location</h3>
+  <p>
+    Location access is <strong>optional</strong>. You can always type a place
+    name instead. If you tap “Use my location”, iOS asks for permission and the
+    app reads your device’s GPS coordinates. Those coordinates are sent to
+    Google to run the search and to look up an approximate area name for
+    display.
+  </p>
+  <p>
+    <strong>Your precise coordinates are never written to our database.</strong>
+    Only the approximate area name may appear in a search log. You can withdraw
+    location permission at any time in iOS Settings → Privacy &amp; Security →
+    Location Services → Burge.
+  </p>
+
+  <h3>2.3 Data that never leaves your device</h3>
+  <p>
+    The following is stored only in the app’s private storage on your iPhone,
+    is never transmitted to us, and is deleted when you delete the app:
+  </p>
   <ul>
-    <li>the search text you typed (e.g. “cafe”),</li>
-    <li>the location text shown in the app (a city, district, or street-level area name — not your exact coordinates),</li>
-    <li>the search mode and how many results were found,</li>
-    <li>the Google place IDs of the top results (identifiers only — no place names or ratings are stored),</li>
-    <li>a random anonymous session tag (e.g. <em>swift-fox-42</em>).</li>
+    <li>the display name you enter when you first open the app,</li>
+    <li>your random nickname,</li>
+    <li>your daily and all-time search counters,</li>
+    <li>your liked places — saved as Google place identifiers with the time you
+      liked them. Names, ratings and addresses are not saved; they are fetched
+      fresh from Google each time you open the Liked screen.</li>
   </ul>
+
+  <h3>2.4 What we do not collect</h3>
   <p>
-    The anonymous tag is generated randomly on your device, is not derived from
-    your name or any device identifier, and is shown to you inside the app
-    (“Your ID” on the home screen). We cannot connect it to your identity.
-  </p>
-  <p><strong>Location.</strong> If you tap “Use my location”, the app reads your
-    device’s GPS coordinates <strong>with your permission</strong> and uses them
-    as the center of your search. Coordinates are sent to Google to perform the
-    search and to resolve an approximate area name for display. Your precise
-    coordinates are <strong>not stored on our servers</strong>; only the
-    approximate area name may appear in the search log. Location access is
-    optional — you can always type a location instead — and you can revoke the
-    permission at any time in iOS Settings → Privacy &amp; Security → Location
-    Services.
-  </p>
-  <p><strong>Data that stays on your device only</strong> (never sent to our
-    servers): the display name you enter at onboarding, your daily search
-    counter, and your recent searches.
-  </p>
-  <p>We do <strong>not</strong> collect: your name, email address, contacts,
-    photos, advertising identifiers, or any analytics/tracking data. We do not
-    sell or share data for advertising.
+    We do not collect your name, email address, phone number, contacts, photos,
+    calendar, health data, device identifiers, or advertising identifiers. We
+    do not use cookies, advertising SDKs, attribution SDKs, or third-party
+    analytics products. We do not send your data to any artificial intelligence
+    or machine-learning service. We do not track you across apps or websites,
+    and we do not sell or share your data for advertising.
   </p>
 
-  <h2>3. Where data is stored and why</h2>
+  <h2>3. Why we collect it, and our legal basis</h2>
   <p>
-    Search logs are stored in <a href="https://supabase.com/privacy">Supabase</a>,
-    a hosted database service. We use them solely to understand aggregate usage
-    and improve result quality. They are not linked to your identity, not used
-    for advertising, and not shared with third parties beyond the service
-    providers named in this policy.
+    Search logs are used for one purpose: to understand, in aggregate, which
+    searches and which areas produce weak results, so the ranking and filtering
+    can be improved. They are not used to build a profile of you, to target
+    advertising, or to make any decision about you.
   </p>
-
-  <h2>4. Google Maps Platform</h2>
   <p>
-    Burge uses Google Maps Platform services (Places API and Geocoding API) to
-    find places and resolve locations. <strong>This application includes Google
-    Maps features and content.</strong> Use of Google Maps features and content
-    is subject to the then-current versions of:
+    Burge is available worldwide, so more than one privacy law may apply to you.
+    Whichever one does, the treatment is the same: we keep the minimum, tied to
+    a random nickname, and you can erase it yourself at any time.
+  </p>
+  <ul>
+    <li>
+      <strong>Türkiye (KVKK, Law No. 6698).</strong> The data controller is the
+      developer named above. Search logs are processed under Article 5(2)(f) —
+      the controller’s legitimate interests — as the processing is necessary to
+      operate and improve the service and does not harm your fundamental rights.
+      Location is processed on the basis of your <strong>explicit
+      consent</strong>.
+    </li>
+    <li>
+      <strong>European Economic Area and the United Kingdom (GDPR).</strong> Our
+      legal basis for search logs is <strong>legitimate interest</strong>
+      (Article 6(1)(f)) in operating and improving the app. Location is
+      processed on the basis of your <strong>consent</strong> (Article 6(1)(a)),
+      which you give through the iOS permission prompt and can withdraw at any
+      time.
+    </li>
+    <li>
+      <strong>California (CCPA/CPRA).</strong> We do not “sell” or “share” your
+      personal information as those terms are defined, we do not use it for
+      cross-context behavioural advertising, and we do not knowingly collect
+      personal information from anyone under 16.
+    </li>
+  </ul>
+
+  <h2>4. Who else is involved</h2>
+
+  <h3>4.1 Google Maps Platform</h3>
+  <p>
+    Burge uses Google Maps Platform services (the Places API and the Geocoding
+    API) to find places and resolve locations.
+    <strong>This application includes Google Maps features and content.</strong>
+    Use of Google Maps features and content is subject to the then-current
+    versions of:
   </p>
   <ul>
     <li><a href="https://maps.google.com/help/terms_maps/">Google Maps/Google Earth Additional Terms of Service</a></li>
     <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
   </ul>
   <p>
-    When the app makes requests to Google, Google collects and receives data
-    such as search terms, IP addresses, and latitude/longitude coordinates, as
-    described in the Google Privacy Policy. We do not send Google your
-    anonymous tag or any name you entered in the app.
+    When the app makes a request, Google receives data such as the search term,
+    the coordinates or area being searched, and the network IP address, as
+    described in the Google Privacy Policy. We do not send Google your nickname
+    or the name you entered in the app.
   </p>
 
-  <h2>5. Data retention and deletion</h2>
+  <h3>4.2 Supabase</h3>
   <p>
-    Search logs are kept only as long as needed for the purposes above. You can
-    request deletion of the logs associated with your anonymous tag (visible as
-    “Your ID” at the bottom of the app’s home screen) by emailing us at the
-    address below; include the tag in your message.
+    Search logs are stored in a database hosted by
+    <a href="https://supabase.com/privacy">Supabase</a>, acting as our data
+    processor. They are not shared with anyone else.
   </p>
 
-  <h2>6. Children</h2>
-  <p>Burge is not directed to children under 13, and we do not knowingly
-    collect data from them.</p>
-
-  <h2>7. Changes to this policy</h2>
+  <h3>4.3 Apple</h3>
   <p>
-    We may update this policy from time to time. The current version will
-    always be available at this URL, with the effective date shown at the top.
+    While Burge is distributed for testing through TestFlight, Apple collects
+    its own installation and crash information under the
+    <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>. We
+    receive crash reports only in aggregated, anonymous form, and only if you
+    have enabled sharing in your iOS settings.
   </p>
 
-  <h2>8. Contact</h2>
+  <h3>4.4 International transfers</h3>
   <p>
-    Questions or deletion requests:
-    <a href="mailto:mertbayam@gmail.com">mertbayam@gmail.com</a>
+    Burge is operated from Türkiye and is available worldwide, so your data will
+    normally be processed outside your own country — the service providers above
+    run on infrastructure in the United States and the European Union. Where a
+    transfer requires a safeguard, it relies on the providers’ own mechanisms,
+    such as the European Commission’s Standard Contractual Clauses. Search logs
+    contain no identifying information, so the practical risk of any such
+    transfer is minimal.
+  </p>
+
+  <h2>5. How long we keep it</h2>
+  <p>
+    Search logs are kept for no longer than <strong>12 months</strong>, after
+    which they are deleted. In practice they are usually removed sooner, once
+    the quality issue they helped diagnose is fixed. You do not have to wait for
+    that — you can delete yours at any moment (see below).
+  </p>
+
+  <h2>6. Your choices and your rights</h2>
+  <p>
+    <strong>Delete everything, instantly, from inside the app.</strong> Open the
+    <em>Profile</em> tab and tap <em>Delete my data</em>. This permanently
+    removes every search log linked to your nickname from our server. It takes
+    effect immediately, requires no approval from us, and cannot be undone.
+  </p>
+  <p>
+    <strong>Delete the on-device data.</strong> Deleting the app from your
+    iPhone removes your display name, nickname, counters and liked places. There
+    is nothing left for us to delete, because none of it was ever sent to us.
+  </p>
+  <p>
+    <strong>Turn off location.</strong> iOS Settings → Privacy &amp; Security →
+    Location Services → Burge. The app keeps working; you type a location
+    instead.
+  </p>
+  <p>
+    Under the KVKK (Article 11), the GDPR, and comparable laws, you also have
+    the right to learn whether your data is processed, to request access to it,
+    its correction, its erasure, a copy in a portable format, and to object to
+    the processing. Because the data is tied only to a random nickname, we need
+    you to send us that nickname (shown as “Your ID” in the app) so we can find
+    the right rows — we cannot identify you any other way. Email
+    <a href="mailto:burgeapp@gmail.com">burgeapp@gmail.com</a> and we will
+    respond within 30 days.
+  </p>
+  <p>
+    If you are not satisfied with our response, you may complain to your data
+    protection authority — in Türkiye the Personal Data Protection Authority
+    (KVKK), in the EEA or the UK your national supervisory authority.
+  </p>
+
+  <h2>7. Children</h2>
+  <p>
+    Burge is not directed to children under 13 (or the equivalent minimum age in
+    your country), and we do not knowingly collect data from them. If you
+    believe a child has used the app and you would like the associated logs
+    removed, contact us and we will delete them.
+  </p>
+
+  <h2>8. Security</h2>
+  <p>
+    All communication between the app, Google and our database uses encrypted
+    HTTPS connections. Our database is configured so that the app can only add
+    a search log and delete the logs belonging to its own nickname — it cannot
+    read or modify anyone’s data, including yours.
+  </p>
+
+  <h2>9. Changes to this policy</h2>
+  <p>
+    We may update this policy as the app changes. The current version is always
+    available at this address, with the effective date shown at the top. If a
+    change materially affects how your data is handled, we will update the
+    effective date and highlight the change here.
+  </p>
+
+  <h2>10. Contact</h2>
+  <p>
+    Questions, data requests, or anything else:
+    <a href="mailto:burgeapp@gmail.com">burgeapp@gmail.com</a>
   </p>
 </main>
 </body>
 </html>
-
