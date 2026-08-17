@@ -98,7 +98,7 @@ color: #444;
 <main>
   <h1>Burge — Privacy Policy</h1>
   <p class="meta">
-    Effective date: July 30, 2026 · Last updated: July 30, 2026<br />
+    Effective date: August 17, 2026 · Last updated: August 17, 2026<br />
     Data controller: Cihan Mert Bayam, individual developer, Türkiye ·
     <a href="mailto:burgeapp@gmail.com">burgeapp@gmail.com</a>
   </p>
@@ -110,14 +110,16 @@ color: #444;
       <li>The name you enter when you first open Burge <strong>never leaves your device</strong>.</li>
       <li>We keep a log of <em>what</em> was searched and <em>roughly where</em>, tied only to a random nickname like <em>swift-fox-42</em> that is not linked to you.</li>
       <li>Your exact GPS coordinates are used to run the search and are <strong>never stored on our servers</strong>.</li>
+      <li>Searches now travel through our own server on their way to Google. That means <strong>Google no longer sees your IP address</strong> — it sees our server’s. We see it, but only to count requests and stop abuse, never to identify you.</li>
       <li>You can erase everything we hold, instantly, from inside the app: <strong>Profile → Delete my data</strong>.</li>
     </ul>
   </div>
 
   <h2>1. What Burge is</h2>
   <p>
-    Burge is an iOS app that shows a short, curated list of the best-rated
-    places (cafés, restaurants, bars and similar) around a location you choose.
+    Burge is a mobile app for iOS and Android that shows a short, curated list
+    of the best-rated places (cafés, restaurants, bars and similar) around a
+    location you choose.
     It has two search experiences: the main search, which returns at most five
     highly-rated places, and <em>Burge It</em>, which surfaces newly opened
     places that the main search filters out. This policy covers both.
@@ -179,24 +181,71 @@ color: #444;
     written.
   </p>
 
-  <h3>2.2 Location</h3>
+  <h3>2.2 Abuse-prevention counters (stored on our server)</h3>
+  <p>
+    Because requests to Google now pass through our own server (see section
+    4.2), that server has to protect itself from being used by someone else at
+    our expense. To do that it keeps a simple daily tally:
+  </p>
+  <div class="wrap">
+    <table>
+      <tr><th>Field</th><th>Example</th><th>Why</th></tr>
+      <tr>
+        <td>Your random nickname, and how many requests it made today</td>
+        <td><em>swift-fox-42</em>, 12</td>
+        <td>To stop a single copy of the app from making an unreasonable
+          number of requests</td>
+      </tr>
+      <tr>
+        <td>The IP address the request came from, and how many requests came
+          from it today</td>
+        <td>203.0.113.7, 41</td>
+        <td>To stop someone who has extracted the app’s public key from using
+          our server directly</td>
+      </tr>
+    </table>
+  </div>
+  <p>
+    These are counters, nothing more: a number per day. They are
+    <strong>not</strong> linked to what you searched for, where you searched, or
+    what results you saw — those live in a separate table (section 2.1) that has
+    no IP address in it. We do not use these counters for analytics and we never
+    look at an individual row.
+  </p>
+  <p>
+    An IP address can count as personal data, so we say so plainly. It is
+    retained for <strong>30 days</strong> and then deleted. Our legal basis is
+    legitimate interest in keeping the service running and affordable
+    (GDPR Article 6(1)(f); KVKK Article 5(2)(f)).
+  </p>
+  <p>
+    <strong>Note on “Delete my data”:</strong> that button erases your search
+    logs. It deliberately does <em>not</em> reset these counters — if it did,
+    anyone could clear their own rate limit on demand and the protection would
+    be pointless. The counters expire on their own within 30 days and contain no
+    record of what you searched for.
+  </p>
+
+  <h3>2.3 Location</h3>
   <p>
     Location access is <strong>optional</strong>. You can always type a place
-    name instead. If you tap “Use my location”, iOS asks for permission and the
-    app reads your device’s GPS coordinates. Those coordinates are sent to
-    Google to run the search and to look up an approximate area name for
+    name instead. If you tap “Use my location”, your phone asks for permission
+    and the app reads your device’s GPS coordinates. Those coordinates are then
+    sent — through our server, which passes them straight to Google without
+    storing them — to run the search and to look up an approximate area name for
     display.
   </p>
   <p>
     <strong>Your precise coordinates are never written to our database.</strong>
     Only the approximate area name may appear in a search log. You can withdraw
-    location permission at any time in iOS Settings → Privacy &amp; Security →
-    Location Services → Burge.
+    location permission at any time in your phone’s settings (on iOS: Settings →
+    Privacy &amp; Security → Location Services → Burge; on Android: Settings →
+    Apps → Burge → Permissions → Location).
   </p>
 
-  <h3>2.3 Data that never leaves your device</h3>
+  <h3>2.4 Data that never leaves your device</h3>
   <p>
-    The following is stored only in the app’s private storage on your iPhone,
+    The following is stored only in the app’s private storage on your phone,
     is never transmitted to us, and is deleted when you delete the app:
   </p>
   <ul>
@@ -208,7 +257,7 @@ color: #444;
       fresh from Google each time you open the Liked screen.</li>
   </ul>
 
-  <h3>2.4 What we do not collect</h3>
+  <h3>2.5 What we do not collect</h3>
   <p>
     We do not collect your name, email address, phone number, contacts, photos,
     calendar, health data, device identifiers, or advertising identifiers. We
@@ -270,29 +319,59 @@ color: #444;
     <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
   </ul>
   <p>
-    When the app makes a request, Google receives data such as the search term,
-    the coordinates or area being searched, and the network IP address, as
-    described in the Google Privacy Policy. We do not send Google your nickname
-    or the name you entered in the app.
+    When a request reaches Google, Google receives data such as the search term
+    and the coordinates or area being searched, as described in the Google
+    Privacy Policy. We do not send Google your nickname or the name you entered
+    in the app.
+  </p>
+  <p>
+    <strong>Google no longer sees your IP address.</strong> Since the change
+    described in section 4.2, requests arrive at Google from our server, so the
+    IP address Google records is ours, not yours.
   </p>
 
-  <h3>4.2 Supabase</h3>
+  <h3>4.2 Our own server (and why it exists)</h3>
   <p>
-    Search logs are stored in a database hosted by
+    The app does not talk to Google directly. Every request goes first to a
+    small service we run on Supabase, which forwards it to Google and returns
+    the answer unchanged.
+  </p>
+  <p>
+    The reason is security, not data collection. Calling Google requires a
+    secret key. If that key ships inside the app, anyone can extract it from the
+    installed app file and spend our budget with it. Keeping it on the server
+    means it is never on your device at all.
+  </p>
+  <p>
+    What this service does with your request: it checks that the request is one
+    of the handful of operations the app is allowed to make, counts it (section
+    2.2), forwards it, and returns Google’s answer.
+    <strong>It does not store the search term, the coordinates, or the
+    results.</strong> Photographs are handled the same way — the service asks
+    Google where the photo lives and tells your phone to fetch it from there, so
+    the image itself never passes through us.
+  </p>
+
+  <h3>4.3 Supabase</h3>
+  <p>
+    Search logs, the abuse-prevention counters, and the forwarding service
+    described above all run on
     <a href="https://supabase.com/privacy">Supabase</a>, acting as our data
-    processor. They are not shared with anyone else.
+    processor. Nothing is shared with anyone else.
   </p>
 
-  <h3>4.3 Apple</h3>
+  <h3>4.4 Apple and Google Play</h3>
   <p>
-    While Burge is distributed for testing through TestFlight, Apple collects
-    its own installation and crash information under the
-    <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>. We
-    receive crash reports only in aggregated, anonymous form, and only if you
-    have enabled sharing in your iOS settings.
+    Burge is distributed through Apple’s App Store and TestFlight, and through
+    Google Play. Those stores collect their own installation and crash
+    information under the
+    <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a> and
+    the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.
+    We receive crash reports only in aggregated, anonymous form, and only if you
+    have enabled sharing in your device settings.
   </p>
 
-  <h3>4.4 International transfers</h3>
+  <h3>4.5 International transfers</h3>
   <p>
     Burge is operated from Türkiye and is available worldwide, so your data will
     normally be processed outside your own country — the service providers above
@@ -305,10 +384,15 @@ color: #444;
 
   <h2>5. How long we keep it</h2>
   <p>
-    Search logs are kept for no longer than <strong>12 months</strong>, after
-    which they are deleted. In practice they are usually removed sooner, once
-    the quality issue they helped diagnose is fixed. You do not have to wait for
-    that — you can delete yours at any moment (see below).
+    <strong>Search logs</strong> are kept for no longer than
+    <strong>12 months</strong>, after which they are deleted. In practice they
+    are usually removed sooner, once the quality issue they helped diagnose is
+    fixed. You do not have to wait for that — you can delete yours at any moment
+    (see below).
+  </p>
+  <p>
+    <strong>Abuse-prevention counters</strong> (section 2.2, including IP
+    addresses) are kept for <strong>30 days</strong> and then deleted.
   </p>
 
   <h2>6. Your choices and your rights</h2>
@@ -317,16 +401,19 @@ color: #444;
     <em>Profile</em> tab and tap <em>Delete my data</em>. This permanently
     removes every search log linked to your nickname from our server. It takes
     effect immediately, requires no approval from us, and cannot be undone.
+    (The abuse-prevention counters in section 2.2 are intentionally not reset —
+    the note there explains why. They expire within 30 days and hold no record
+    of what you searched for.)
   </p>
   <p>
     <strong>Delete the on-device data.</strong> Deleting the app from your
-    iPhone removes your display name, nickname, counters and liked places. There
+    phone removes your display name, nickname, counters and liked places. There
     is nothing left for us to delete, because none of it was ever sent to us.
   </p>
   <p>
-    <strong>Turn off location.</strong> iOS Settings → Privacy &amp; Security →
-    Location Services → Burge. The app keeps working; you type a location
-    instead.
+    <strong>Turn off location.</strong> On iOS: Settings → Privacy &amp;
+    Security → Location Services → Burge. On Android: Settings → Apps → Burge →
+    Permissions → Location. The app keeps working; you type a location instead.
   </p>
   <p>
     Under the KVKK (Article 11), the GDPR, and comparable laws, you also have
@@ -354,10 +441,18 @@ color: #444;
 
   <h2>8. Security</h2>
   <p>
-    All communication between the app, Google and our database uses encrypted
-    HTTPS connections. Our database is configured so that the app can only add
-    a search log and delete the logs belonging to its own nickname — it cannot
-    read or modify anyone’s data, including yours.
+    All communication between the app, our server, Google and our database uses
+    encrypted HTTPS connections.
+  </p>
+  <p>
+    Our database is configured so that the app can only add a search log and
+    delete the logs belonging to its own nickname — it cannot read or modify
+    anyone’s data, including yours. The abuse-prevention counters are stricter
+    still: the app cannot read or write them at all, only our own server can.
+  </p>
+  <p>
+    The key used to call Google is held on our server and is never included in
+    the app you install, so it cannot be extracted from your device.
   </p>
 
   <h2>9. Changes to this policy</h2>
