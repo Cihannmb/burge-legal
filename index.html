@@ -98,7 +98,7 @@ color: #444;
 <main>
   <h1>Burge — Privacy Policy</h1>
   <p class="meta">
-    Effective date: August 17, 2026 · Last updated: August 17, 2026<br />
+    Effective date: August 18, 2026 · Last updated: August 18, 2026<br />
     Data controller: Cihan Mert Bayam, individual developer, Türkiye ·
     <a href="mailto:burgeapp@gmail.com">burgeapp@gmail.com</a>
   </p>
@@ -106,12 +106,12 @@ color: #444;
   <div class="summary">
     <strong>The short version:</strong>
     <ul>
-      <li>No account, no sign-up, no advertising, no tracking, no data sold — ever.</li>
-      <li>The name you enter when you first open Burge <strong>never leaves your device</strong>.</li>
-      <li>We keep a log of <em>what</em> was searched and <em>roughly where</em>, tied only to a random nickname like <em>swift-fox-42</em> that is not linked to you.</li>
+      <li>No advertising, no tracking, no data sold — ever.</li>
+      <li><strong>Signing in is optional.</strong> Burge works fully without an account; you only sign in if you want your liked places to follow you to another phone.</li>
+      <li>We keep a log of <em>what</em> was searched and <em>roughly where</em>. If you have not signed in, it is tied to an anonymous account that holds no name, no email — nothing that identifies you.</li>
       <li>Your exact GPS coordinates are used to run the search and are <strong>never stored on our servers</strong>.</li>
       <li>Searches now travel through our own server on their way to Google. That means <strong>Google no longer sees your IP address</strong> — it sees our server’s. We see it, but only to count requests and stop abuse, never to identify you.</li>
-      <li>You can erase everything we hold, instantly, from inside the app: <strong>Profile → Delete my data</strong>.</li>
+      <li>You can erase everything we hold, instantly, from inside the app: <strong>Profile → Delete my account</strong>.</li>
     </ul>
   </div>
 
@@ -125,13 +125,57 @@ color: #444;
     places that the main search filters out. This policy covers both.
   </p>
   <p>
-    Burge does not require an account and does not use any advertising,
-    attribution, or third-party analytics SDKs.
+    Burge does not use any advertising, attribution, or third-party analytics
+    SDKs.
   </p>
 
   <h2>2. What we collect</h2>
 
-  <h3>2.1 Search logs (stored on our server)</h3>
+  <h3>2.1 Your account</h3>
+  <p>
+    The first time you open Burge, we create an <strong>anonymous
+    account</strong> for you automatically. It is a random identifier and
+    nothing else — no name, no email, no device identifier, nothing that points
+    back to you. You do not sign up, and you are not asked to. Everything the
+    app stores is attached to this identifier so that it can be shown back to
+    you and deleted on request.
+  </p>
+  <p>
+    <strong>Signing in is entirely optional.</strong> Its only purpose is to let
+    your liked places follow you to another phone. If you choose to sign in with
+    Google or Apple, that anonymous account is <em>upgraded</em> — it stays the
+    same account, so nothing is lost — and we then also receive:
+  </p>
+  <div class="wrap">
+    <table>
+      <tr><th>Field</th><th>Where it comes from</th><th>Why</th></tr>
+      <tr>
+        <td>Email address</td>
+        <td>Google or Apple</td>
+        <td>To recognise you as the same person on another device. With Apple
+          you may choose <em>Hide My Email</em>, in which case we only ever see
+          a relay address and never your real one</td>
+      </tr>
+      <tr>
+        <td>Name (may be empty)</td>
+        <td>Google or Apple</td>
+        <td>Shown in the app so the Profile screen is not blank. Apple sends it
+          only the first time, and you may decline to share it — Burge works
+          the same either way</td>
+      </tr>
+    </table>
+  </div>
+  <p>
+    We do <strong>not</strong> receive your Google or Apple password, contacts,
+    calendar, photos, or any other account content — only the two fields above.
+    We never post anything anywhere on your behalf.
+  </p>
+  <p>
+    You can sign out at any time (Profile → Sign out), which returns you to an
+    anonymous account, or delete the whole thing (section 6).
+  </p>
+
+  <h3>2.2 Search logs (stored on our server)</h3>
   <p>Each time a search actually runs, we record one row containing:</p>
   <div class="wrap">
     <table>
@@ -164,35 +208,35 @@ color: #444;
           names, ratings, addresses or photos</td>
       </tr>
       <tr>
-        <td>A random nickname generated on your device</td>
-        <td><em>swift-fox-42</em></td>
-        <td>To tell one device’s searches apart from another’s</td>
+        <td>Your account identifier</td>
+        <td>a random ID</td>
+        <td>To tell one person’s searches apart from another’s, and so you can
+          delete yours</td>
       </tr>
     </table>
   </div>
   <p>
-    The nickname is generated randomly on your device. It is not derived from
-    your name, your email, your phone number, or any device or advertising
-    identifier, and we have no way to connect it to your identity. You can see
-    it yourself in the app as “Your ID”.
+    If you have not signed in, that identifier is all there is — it is not
+    derived from your name, email, phone number, or any device or advertising
+    identifier, and we have no way to connect it to you. If you have signed in,
+    it is linked to the email described in section 2.1.
   </p>
   <p>
     If a search result is served from the app’s local cache, no new row is
     written.
   </p>
 
-  <h3>2.2 Abuse-prevention counters (stored on our server)</h3>
+  <h3>2.3 Abuse-prevention counters (stored on our server)</h3>
   <p>
-    Because requests to Google now pass through our own server (see section
-    4.2), that server has to protect itself from being used by someone else at
+    Because requests to Google now pass through our own server (see section 4.2), that server has to protect itself from being used by someone else at
     our expense. To do that it keeps a simple daily tally:
   </p>
   <div class="wrap">
     <table>
       <tr><th>Field</th><th>Example</th><th>Why</th></tr>
       <tr>
-        <td>Your random nickname, and how many requests it made today</td>
-        <td><em>swift-fox-42</em>, 12</td>
+        <td>Your account identifier, and how many requests it made today</td>
+        <td>a random ID, 12</td>
         <td>To stop a single copy of the app from making an unreasonable
           number of requests</td>
       </tr>
@@ -208,8 +252,7 @@ color: #444;
   <p>
     These are counters, nothing more: a number per day. They are
     <strong>not</strong> linked to what you searched for, where you searched, or
-    what results you saw — those live in a separate table (section 2.1) that has
-    no IP address in it. We do not use these counters for analytics and we never
+    what results you saw — those live in separate tables (sections 2.1–2.2) that hold no IP address. We do not use these counters for analytics and we never
     look at an individual row.
   </p>
   <p>
@@ -219,14 +262,15 @@ color: #444;
     (GDPR Article 6(1)(f); KVKK Article 5(2)(f)).
   </p>
   <p>
-    <strong>Note on “Delete my data”:</strong> that button erases your search
-    logs. It deliberately does <em>not</em> reset these counters — if it did,
-    anyone could clear their own rate limit on demand and the protection would
-    be pointless. The counters expire on their own within 30 days and contain no
-    record of what you searched for.
+    <strong>Note on “Delete my account”:</strong> that button erases your
+    account and everything attached to it. It deliberately does <em>not</em>
+    reset these counters — if it did, anyone could clear their own rate limit by
+    deleting and recreating an account, and the protection would be pointless.
+    The counters expire on their own within 30 days and contain no record of
+    what you searched for.
   </p>
 
-  <h3>2.3 Location</h3>
+  <h3>2.4 Location</h3>
   <p>
     Location access is <strong>optional</strong>. You can always type a place
     name instead. If you tap “Use my location”, your phone asks for permission
@@ -243,28 +287,37 @@ color: #444;
     Apps → Burge → Permissions → Location).
   </p>
 
-  <h3>2.4 Data that never leaves your device</h3>
+  <h3>2.5 Data that stays on your device</h3>
   <p>
     The following is stored only in the app’s private storage on your phone,
     is never transmitted to us, and is deleted when you delete the app:
   </p>
   <ul>
-    <li>the display name you enter when you first open the app,</li>
-    <li>your random nickname,</li>
-    <li>your daily and all-time search counters,</li>
-    <li>your liked places — saved as Google place identifiers with the time you
-      liked them. Names, ratings and addresses are not saved; they are fetched
-      fresh from Google each time you open the Liked screen.</li>
+    <li>your sign-in session, so you are not asked to sign in every time,</li>
+    <li>whether you have already seen the introduction slides.</li>
   </ul>
-
-  <h3>2.5 What we do not collect</h3>
   <p>
-    We do not collect your name, email address, phone number, contacts, photos,
-    calendar, health data, device identifiers, or advertising identifiers. We
-    do not use cookies, advertising SDKs, attribution SDKs, or third-party
-    analytics products. We do not send your data to any artificial intelligence
-    or machine-learning service. We do not track you across apps or websites,
-    and we do not sell or share your data for advertising.
+    Your liked places and your search counters used to live here. As of
+    August&nbsp;18,&nbsp;2026 they are stored on our server instead, attached to
+    your account — that is what lets them follow you to a new phone. Liked
+    places are still only Google place identifiers with a timestamp; names,
+    ratings and addresses are never stored and are fetched fresh from Google
+    each time you open the Liked screen.
+  </p>
+
+  <h3>2.6 What we do not collect</h3>
+  <p>
+    We do not collect your phone number, contacts, photos, calendar, health
+    data, device identifiers, or advertising identifiers. We never receive your
+    Google or Apple password. We do not use cookies, advertising SDKs,
+    attribution SDKs, or third-party analytics products. We do not send your
+    data to any artificial intelligence or machine-learning service. We do not
+    track you across apps or websites, and we do not sell or share your data
+    for advertising.
+  </p>
+  <p>
+    Your name and email are collected <strong>only if you choose to sign in</strong>,
+    and only as described in section 2.1. If you never sign in, we hold neither.
   </p>
 
   <h2>3. Why we collect it, and our legal basis</h2>
@@ -275,9 +328,17 @@ color: #444;
     advertising, or to make any decision about you.
   </p>
   <p>
+    <strong>Account data</strong> (section 2.1) is processed on a different
+    basis: it exists because <em>you asked for it</em> by signing in, so that
+    the feature you requested — your liked places on more than one device — can
+    work. In GDPR terms that is performance of a contract (Article 6(1)(b));
+    under the KVKK it is Article 5(2)(c). If you never sign in, none of it
+    applies to you.
+  </p>
+  <p>
     Burge is available worldwide, so more than one privacy law may apply to you.
     Whichever one does, the treatment is the same: we keep the minimum, tied to
-    a random nickname, and you can erase it yourself at any time.
+    your account, and you can erase all of it yourself at any time.
   </p>
   <ul>
     <li>
@@ -321,8 +382,8 @@ color: #444;
   <p>
     When a request reaches Google, Google receives data such as the search term
     and the coordinates or area being searched, as described in the Google
-    Privacy Policy. We do not send Google your nickname or the name you entered
-    in the app.
+    Privacy Policy. We do not send Google your account identifier, your email, or
+    your name.
   </p>
   <p>
     <strong>Google no longer sees your IP address.</strong> Since the change
@@ -344,8 +405,7 @@ color: #444;
   </p>
   <p>
     What this service does with your request: it checks that the request is one
-    of the handful of operations the app is allowed to make, counts it (section
-    2.2), forwards it, and returns Google’s answer.
+    of the handful of operations the app is allowed to make, counts it (section 2.3), forwards it, and returns Google’s answer.
     <strong>It does not store the search term, the coordinates, or the
     results.</strong> Photographs are handled the same way — the service asks
     Google where the photo lives and tells your phone to fetch it from there, so
@@ -391,24 +451,27 @@ color: #444;
     (see below).
   </p>
   <p>
-    <strong>Abuse-prevention counters</strong> (section 2.2, including IP
-    addresses) are kept for <strong>30 days</strong> and then deleted.
+    <strong>Abuse-prevention counters</strong> (section 2.3, including IP addresses) are kept for <strong>30 days</strong> and then deleted.
   </p>
 
   <h2>6. Your choices and your rights</h2>
   <p>
     <strong>Delete everything, instantly, from inside the app.</strong> Open the
-    <em>Profile</em> tab and tap <em>Delete my data</em>. This permanently
-    removes every search log linked to your nickname from our server. It takes
-    effect immediately, requires no approval from us, and cannot be undone.
-    (The abuse-prevention counters in section 2.2 are intentionally not reset —
+    <em>Profile</em> tab and tap <em>Delete my account</em>. This permanently
+    removes your account itself and, with it, your email and name (if you signed
+    in), your liked places, your search logs and your counters. It takes effect
+    immediately, requires no approval from us, and cannot be undone — signing in
+    again with the same Google or Apple account will not bring any of it back.
+    You can carry on using Burge straight afterwards; a fresh anonymous account
+    is created for you.
+    (The abuse-prevention counters in section 2.3 are intentionally not reset —
     the note there explains why. They expire within 30 days and hold no record
     of what you searched for.)
   </p>
   <p>
-    <strong>Delete the on-device data.</strong> Deleting the app from your
-    phone removes your display name, nickname, counters and liked places. There
-    is nothing left for us to delete, because none of it was ever sent to us.
+    <strong>Sign out without deleting.</strong> Profile → <em>Sign out</em>
+    returns you to an anonymous account. Your data stays on our server and comes
+    back when you sign in again.
   </p>
   <p>
     <strong>Turn off location.</strong> On iOS: Settings → Privacy &amp;
@@ -419,9 +482,10 @@ color: #444;
     Under the KVKK (Article 11), the GDPR, and comparable laws, you also have
     the right to learn whether your data is processed, to request access to it,
     its correction, its erasure, a copy in a portable format, and to object to
-    the processing. Because the data is tied only to a random nickname, we need
-    you to send us that nickname (shown as “Your ID” in the app) so we can find
-    the right rows — we cannot identify you any other way. Email
+    the processing. If you have signed in, write to us from the email address
+    on your account. If you have not, the data is tied only to a random
+    identifier and we need you to send us the ID shown in the app under
+    <em>Profile → Your ID</em> — we cannot find your rows any other way. Email
     <a href="mailto:burgeapp@gmail.com">burgeapp@gmail.com</a> and we will
     respond within 30 days.
   </p>
@@ -445,10 +509,13 @@ color: #444;
     encrypted HTTPS connections.
   </p>
   <p>
-    Our database is configured so that the app can only add a search log and
-    delete the logs belonging to its own nickname — it cannot read or modify
-    anyone’s data, including yours. The abuse-prevention counters are stricter
-    still: the app cannot read or write them at all, only our own server can.
+    Our database enforces, at the database level, that every row belongs to
+    exactly one account and that an account can only ever reach its own rows —
+    reading, writing or deleting anyone else’s is refused by the server, not
+    merely hidden by the app. Requests carry a cryptographically verified token;
+    the app cannot claim to be someone else. The abuse-prevention counters are
+    stricter still: the app cannot read or write them at all, only our own
+    server can.
   </p>
   <p>
     The key used to call Google is held on our server and is never included in
