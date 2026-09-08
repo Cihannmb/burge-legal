@@ -98,7 +98,7 @@ color: #444;
 <main>
   <h1>Burge — Privacy Policy</h1>
   <p class="meta">
-    Effective date: August 18, 2026 · Last updated: August 18, 2026<br />
+    Effective date: September 8, 2026 · Last updated: September 8, 2026<br />
     Data controller: Cihan Mert Bayam, individual developer, Türkiye ·
     <a href="mailto:burgeapp@gmail.com">burgeapp@gmail.com</a>
   </p>
@@ -108,10 +108,10 @@ color: #444;
     <ul>
       <li>No advertising, no tracking, no data sold — ever.</li>
       <li><strong>Signing in is optional.</strong> Burge works fully without an account; you only sign in if you want your liked places to follow you to another phone.</li>
-      <li>We keep a log of <em>what</em> was searched and <em>roughly where</em>. If you have not signed in, it is tied to an anonymous account that holds no name, no email — nothing that identifies you.</li>
+      <li>We keep a log of <em>what</em> was searched and <em>roughly where</em>. It carries <strong>no account identifier</strong> — nothing links those rows to you, signed in or not.</li>
       <li>Your exact GPS coordinates are used to run the search and are <strong>never stored on our servers</strong>.</li>
       <li>Searches now travel through our own server on their way to Google. That means <strong>Google no longer sees your IP address</strong> — it sees our server’s. We see it, but only to count requests and stop abuse, never to identify you.</li>
-      <li>You can erase everything we hold, instantly, from inside the app: <strong>Profile → Delete my account</strong>.</li>
+      <li>You can erase everything we hold <em>that is connected to you</em>, instantly, from inside the app: <strong>Profile → Delete my account</strong>. (Search logs are not connected to you in the first place — see section 2.2.)</li>
     </ul>
   </div>
 
@@ -137,8 +137,10 @@ color: #444;
     account</strong> for you automatically. It is a random identifier and
     nothing else — no name, no email, no device identifier, nothing that points
     back to you. You do not sign up, and you are not asked to. Everything the
-    app stores is attached to this identifier so that it can be shown back to
-    you and deleted on request.
+    app stores <em>about you</em> — your liked places and your daily search
+    allowance — is attached to this identifier, so it can be shown back to you
+    and deleted on request. Search logs are deliberately kept outside this link
+    (section 2.2).
   </p>
   <p>
     <strong>Signing in is entirely optional.</strong> Its only purpose is to let
@@ -148,27 +150,29 @@ color: #444;
   </p>
   <div class="wrap">
     <table>
-      <tr><th>Field</th><th>Where it comes from</th><th>Why</th></tr>
+      <tr><th>Sign-in method</th><th>What we receive</th></tr>
       <tr>
-        <td>Email address</td>
-        <td>Google or Apple</td>
-        <td>To recognise you as the same person on another device. With Apple
-          you may choose <em>Hide My Email</em>, in which case we only ever see
-          a relay address and never your real one</td>
+        <td><strong>Sign in with Apple</strong></td>
+        <td><strong>Nothing beyond an anonymous identifier.</strong> We no longer
+          ask Apple for your name or your email address — not even a
+          <em>Hide My Email</em> relay address. Matching you across devices is
+          done with an opaque identifier that means nothing outside Burge</td>
       </tr>
       <tr>
-        <td>Name (may be empty)</td>
-        <td>Google or Apple</td>
-        <td>Shown in the app so the Profile screen is not blank. Apple sends it
-          only the first time, and you may decline to share it — Burge works
-          the same either way</td>
+        <td><strong>Sign in with Google</strong></td>
+        <td>Your <strong>email address</strong> and your <strong>name</strong>.
+          We would rather not receive these either, but Google's sign-in SDK
+          always sends them and gives apps no way to switch them off. They are
+          used only to show which account you are signed into. If you would
+          rather not share them, use Sign in with Apple or stay signed out —
+          Burge works fully either way</td>
       </tr>
     </table>
   </div>
   <p>
     We do <strong>not</strong> receive your Google or Apple password, contacts,
-    calendar, photos, or any other account content — only the two fields above.
-    We never post anything anywhere on your behalf.
+    calendar, photos, or any other account content. We never post anything
+    anywhere on your behalf.
   </p>
   <p>
     You can sign out at any time (Profile → Sign out), which returns you to an
@@ -207,19 +211,19 @@ color: #444;
         <td>To check result quality. Identifiers only — we never store place
           names, ratings, addresses or photos</td>
       </tr>
-      <tr>
-        <td>Your account identifier</td>
-        <td>a random ID</td>
-        <td>To tell one person’s searches apart from another’s, and so you can
-          delete yours</td>
-      </tr>
     </table>
   </div>
   <p>
-    If you have not signed in, that identifier is all there is — it is not
-    derived from your name, email, phone number, or any device or advertising
-    identifier, and we have no way to connect it to you. If you have signed in,
-    it is linked to the email described in section 2.1.
+    <strong>These rows carry no account identifier at all.</strong> They used to,
+    and we removed it: the app never reads this table, and knowing <em>who</em>
+    searched is not needed to answer the only questions we ask of it — which
+    searches return poor results, and which areas have weak coverage.
+  </p>
+  <p>
+    The practical consequence, stated plainly: because nothing connects these
+    rows to you, <strong>we cannot show them to you and we cannot delete them
+    for you</strong> — we have no way to tell which ones would be yours. There
+    is nothing personal left in them to delete.
   </p>
   <p>
     If a search result is served from the app’s local cache, no new row is
@@ -447,8 +451,8 @@ color: #444;
     <strong>Search logs</strong> are kept for no longer than
     <strong>12 months</strong>, after which they are deleted. In practice they
     are usually removed sooner, once the quality issue they helped diagnose is
-    fixed. You do not have to wait for that — you can delete yours at any moment
-    (see below).
+    fixed. They carry no account identifier, so there are no “yours” to single
+    out — and nothing personal in them to delete.
   </p>
   <p>
     <strong>Abuse-prevention counters</strong> (section 2.3, including IP addresses) are kept for <strong>30 days</strong> and then deleted.
@@ -459,7 +463,9 @@ color: #444;
     <strong>Delete everything, instantly, from inside the app.</strong> Open the
     <em>Profile</em> tab and tap <em>Delete my account</em>. This permanently
     removes your account itself and, with it, your email and name (if you signed
-    in), your liked places, your search logs and your counters. It takes effect
+    in with Google), your liked places and your daily search counter. It does
+    <em>not</em> remove search logs — not because we keep them from you, but
+    because nothing marks which ones would be yours. It takes effect
     immediately, requires no approval from us, and cannot be undone — signing in
     again with the same Google or Apple account will not bring any of it back.
     You can carry on using Burge straight afterwards; a fresh anonymous account
@@ -529,6 +535,27 @@ color: #444;
     change materially affects how your data is handled, we will update the
     effective date and highlight the change here.
   </p>
+  <h3>What changed on 8 September 2026</h3>
+  <p>
+    Every change in this revision <strong>reduces</strong> what we collect. Nothing
+    new was added.
+  </p>
+  <ul>
+    <li>
+      <strong>Sign in with Apple no longer gives us your name or your email
+      address.</strong> We stopped asking Apple for them — not even a
+      <em>Hide My Email</em> relay address. Matching you across devices uses an
+      opaque identifier instead. (Google's sign-in SDK still sends both and
+      offers apps no way to turn that off; section 2.1 says so plainly.)
+    </li>
+    <li>
+      <strong>Search logs are no longer connected to your account.</strong> We
+      removed the account identifier from them, so those rows can no longer be
+      traced to you — by us or by anyone else. The practical trade-off is stated
+      in section 2.2: we can no longer show them to you or delete them on
+      request, because nothing marks which ones would be yours.
+    </li>
+  </ul>
 
   <h2>10. Contact</h2>
   <p>
