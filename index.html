@@ -358,8 +358,8 @@ color: #444;
       legal basis for search logs is <strong>legitimate interest</strong>
       (Article 6(1)(f)) in operating and improving the app. Location is
       processed on the basis of your <strong>consent</strong> (Article 6(1)(a)),
-      which you give through the iOS permission prompt and can withdraw at any
-      time.
+      which you give through your phone’s location permission prompt (iOS or
+      Android) and can withdraw at any time in your phone’s settings.
     </li>
     <li>
       <strong>California (CCPA/CPRA).</strong> We do not “sell” or “share” your
@@ -449,8 +449,9 @@ color: #444;
   <h2>5. How long we keep it</h2>
   <p>
     <strong>Search logs</strong> are kept for no longer than
-    <strong>12 months</strong>, after which they are deleted. In practice they
-    are usually removed sooner, once the quality issue they helped diagnose is
+    <strong>12 months</strong>. A scheduled job on our database deletes anything
+    older, automatically — it is not a manual promise. In practice rows are
+    often removed sooner, once the quality issue they helped diagnose is
     fixed. They carry no account identifier, so there are no “yours” to single
     out — and nothing personal in them to delete.
   </p>
@@ -504,9 +505,33 @@ color: #444;
   <h2>7. Children</h2>
   <p>
     Burge is not directed to children under 13 (or the equivalent minimum age in
-    your country), and we do not knowingly collect data from them. If you
-    believe a child has used the app and you would like the associated logs
-    removed, contact us and we will delete them.
+    your country), and we do not knowingly collect data from them.
+  </p>
+  <p>
+    If you believe a child has used the app, here is exactly what can and cannot
+    be done — stated honestly rather than reassuringly:
+  </p>
+  <ul>
+    <li>
+      <strong>The account can be deleted, and with it everything attached to
+      it</strong> — liked places, the daily search counter, and the email and
+      name if the child signed in with Google. This can be done from inside the
+      app (Profile → Delete my account), or you can contact us and we will do it.
+    </li>
+    <li>
+      <strong>Search logs cannot be singled out and deleted — by us or by
+      anyone.</strong> As section 2.2 explains, those rows carry no account
+      identifier, no session identifier and no IP address, so nothing could tell
+      us which of them came from a particular person or device. This is a
+      consequence of collecting less, not of refusing to help: the rows hold a
+      search word, an approximate area name, a count, and Google place
+      identifiers — nothing that identifies a child or anyone else. They are
+      deleted automatically within 12 months (section 5).
+    </li>
+  </ul>
+  <p>
+    We would rather say this plainly than promise a deletion we could not
+    actually carry out.
   </p>
 
   <h2>8. Security</h2>
@@ -515,10 +540,14 @@ color: #444;
     encrypted HTTPS connections.
   </p>
   <p>
-    Our database enforces, at the database level, that every row belongs to
-    exactly one account and that an account can only ever reach its own rows —
+    Our database enforces, at the database level, that every row holding
+    account data — your liked places and your search counter — belongs to
+    exactly one account, and that an account can only ever reach its own rows:
     reading, writing or deleting anyone else’s is refused by the server, not
-    merely hidden by the app. Requests carry a cryptographically verified token;
+    merely hidden by the app. Search logs are the deliberate exception, in the
+    privacy-protecting direction: they belong to no account at all, and the app
+    may add a row but <em>cannot read or delete any</em> — not its own, not
+    anyone else’s. Requests carry a cryptographically verified token;
     the app cannot claim to be someone else. The abuse-prevention counters are
     stricter still: the app cannot read or write them at all, only our own
     server can.
@@ -556,6 +585,15 @@ color: #444;
       request, because nothing marks which ones would be yours.
     </li>
   </ul>
+  <p>
+    A review on the same day also corrected three statements that no longer
+    matched how the app works: the location-consent paragraph in section 3 said
+    “iOS” although Burge runs on Android too; section 7 promised to delete a
+    child’s search logs on request, which the change above had made impossible;
+    and section 8 described every row as belonging to an account, which is no
+    longer true of search logs. Section 5’s twelve-month limit is now enforced
+    by a scheduled deletion job rather than left as an intention.
+  </p>
 
   <h2>10. Contact</h2>
   <p>
