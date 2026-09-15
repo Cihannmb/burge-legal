@@ -55,6 +55,15 @@
       border-radius: 12px;
       padding: 1rem 1.25rem;
     }
+    /* Marks a section that applies only to certain app versions. */
+    .scope-note {
+      background: #f4f4f5;
+      border-left: 3px solid #d4d4d8;
+      border-radius: 4px;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.95rem;
+      color: #3f3f46;
+    }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -98,7 +107,7 @@ color: #444;
 <main>
   <h1>Burge — Privacy Policy</h1>
   <p class="meta">
-    Effective date: September 8, 2026 · Last updated: September 8, 2026<br />
+    Effective date: September 8, 2026 · Last updated: September 15, 2026<br />
     Data controller: Cihan Mert Bayam, individual developer, Türkiye ·
     <a href="mailto:burgeapp@gmail.com">burgeapp@gmail.com</a>
   </p>
@@ -298,7 +307,13 @@ color: #444;
   </p>
   <ul>
     <li>your sign-in session, so you are not asked to sign in every time,</li>
-    <li>whether you have already seen the introduction slides.</li>
+    <li>whether you have already seen the introduction slides,</li>
+    <li>
+      your last few searches, so the home screen can offer them back as
+      shortcuts. Only what <em>you</em> typed is kept — the search term, the
+      location text and the mode. No place names, ratings or addresses, and no
+      GPS coordinates. Deleting your account erases these from the phone too.
+    </li>
   </ul>
   <p>
     Your liked places and your search counters used to live here. As of
@@ -435,7 +450,86 @@ color: #444;
     have enabled sharing in your device settings.
   </p>
 
-  <h3>4.5 International transfers</h3>
+  <h3>4.5 Expo (over-the-air app updates)</h3>
+  <p class="scope-note">
+    <strong>Applies to app version 1.0 (4) and later.</strong> Earlier versions
+    do not contact Expo at all.
+  </p>
+  <p>
+    Burge can update its own JavaScript, styles and images without waiting for a
+    new App Store or Google Play release. That service is EAS Update, run by
+    Expo, acting as our data processor.
+  </p>
+  <p>
+    On each launch the app asks Expo whether a newer version exists. That request
+    carries: a <strong>random installation identifier</strong> generated the
+    first time the app runs — it identifies the installation, never you, and is
+    gone when you delete the app — the platform (iOS or Android), the version of
+    the app’s native code, the release channel, and, <em>only if the app crashed
+    during its previous launch</em>, a <strong>short crash message</strong>
+    (truncated to 1,024 characters). Expo’s servers also see the IP address the
+    request arrives from, as any web server does.
+  </p>
+  <p>
+    The crash message exists so that a broken update can be detected and rolled
+    back automatically. It is a technical error description, not a record of what
+    you did: Burge’s own error messages are fixed strings that never contain your
+    search term, your location, or a place name. This behaviour cannot be
+    switched off on its own without disabling the update mechanism itself, so we
+    disclose it rather than leave it unsaid.
+  </p>
+  <p>
+    Expo states that it acts as a processor for end-user data handled on behalf
+    of developers, that it does not sell data, and that it is GDPR-, CCPA- and
+    Data Privacy Framework-compliant. Expo does not publish a retention period
+    for update-check data — see the
+    <a href="https://expo.dev/privacy">Expo Privacy Policy</a> and the
+    <a href="https://expo.dev/privacy-explained">Privacy Explained</a> page.
+    Nothing about your account, your searches, or your liked places is sent to
+    Expo.
+  </p>
+
+  <h3>4.6 RevenueCat (subscriptions)</h3>
+  <p class="scope-note">
+    <strong>Applies to app version 1.0 (4) and later.</strong> Earlier versions
+    contain no subscription feature and do not contact RevenueCat.
+  </p>
+  <p>
+    Burge offers an optional paid tier, <strong>Burge Premium</strong>, which
+    raises your monthly search allowance. Subscriptions are handled by
+    <a href="https://www.revenuecat.com/privacy">RevenueCat</a>, acting as our
+    data processor under its
+    <a href="https://www.revenuecat.com/dpa">Data Processing Addendum</a>.
+  </p>
+  <p>
+    <strong>We never see your payment details.</strong> The money is taken by
+    Apple or Google, not by us; no card number, billing address or bank
+    information reaches Burge or RevenueCat through the app.
+  </p>
+  <p>
+    What RevenueCat holds: <strong>your Burge account identifier</strong> (the
+    same random identifier described in section 2.1), which product you bought,
+    when it renews or expires, and your device model, operating system and app
+    version. RevenueCat states that it does not collect names, email addresses
+    or IP addresses by default, and we send it none of those.
+  </p>
+  <p>
+    <strong>Your subscription is linked to your Burge account</strong> — that
+    is what lets the server know your allowance is higher, and what lets your
+    subscription follow you to another phone when you sign in. If you subscribe
+    without signing in, it stays tied to the anonymous account on this device
+    and to your Apple or Google account, which is how <em>Restore purchases</em>
+    brings it back.
+  </p>
+  <p>
+    Deleting your Burge account removes what we hold about your entitlement,
+    and the app returns RevenueCat to an anonymous identifier. <strong>It does
+    not cancel the subscription itself</strong> — only you can do that, from
+    your Apple or Google subscription settings, and you should cancel there
+    before deleting the account if you no longer want to be billed.
+  </p>
+
+  <h3>4.7 International transfers</h3>
   <p>
     Burge is operated from Türkiye and is available worldwide, so your data will
     normally be processed outside your own country — the service providers above
@@ -458,13 +552,19 @@ color: #444;
   <p>
     <strong>Abuse-prevention counters</strong> (section 2.3, including IP addresses) are kept for <strong>30 days</strong> and then deleted.
   </p>
+  <p>
+    <strong>App-update requests</strong> (section 4.5) are handled by Expo, which
+    does not publish a retention period for them. They carry a random
+    installation identifier, never an account identifier.
+  </p>
 
   <h2>6. Your choices and your rights</h2>
   <p>
     <strong>Delete everything, instantly, from inside the app.</strong> Open the
     <em>Profile</em> tab and tap <em>Delete my account</em>. This permanently
     removes your account itself and, with it, your email and name (if you signed
-    in with Google), your liked places and your daily search counter. It does
+    in with Google), your liked places and your daily search counter. It also
+    erases the recent searches stored on this phone (section 2.5). It does
     <em>not</em> remove search logs — not because we keep them from you, but
     because nothing marks which ones would be yours. It takes effect
     immediately, requires no approval from us, and cannot be undone — signing in
@@ -564,6 +664,75 @@ color: #444;
     change materially affects how your data is handled, we will update the
     effective date and highlight the change here.
   </p>
+  <h3>What changed on 15 September 2026</h3>
+  <p>
+    Clarifications only. No change to what we collect, why, or who receives it.
+  </p>
+  <ul>
+    <li>
+      <strong>Sections 4.5 and 4.6 now say which app versions they apply to.</strong>
+      Over-the-air updates and subscriptions arrive in version 1.0 (4); earlier
+      versions do not contact Expo or RevenueCat at all. Without this note the
+      policy described things an older build never does.
+    </li>
+    <li>
+      <strong>Corrected the paid tier's wording.</strong> It raises your
+      <em>monthly</em> search allowance, not your daily one. The free tier's
+      counter is still daily.
+    </li>
+  </ul>
+
+  <h3>What changed on 13 September 2026</h3>
+  <p>
+    Burge gained an optional paid tier. Nothing about the free app changed.
+  </p>
+  <ul>
+    <li>
+      <strong>New section 4.6 — RevenueCat.</strong> Subscriptions are handled
+      by RevenueCat. It receives your Burge account identifier, which product
+      you bought and when it renews, plus your device model, OS and app version.
+      It never receives your payment details — Apple or Google take the money.
+    </li>
+    <li>
+      <strong>Your subscription is linked to your account.</strong> That is what
+      lets the server raise your monthly allowance, and what lets the subscription
+      follow you to another phone.
+    </li>
+    <li>
+      <strong>Deleting your account does not cancel a subscription.</strong>
+      Section 4.6 says where to cancel, and says to do it first.
+    </li>
+  </ul>
+
+  <h3>What changed on 12 September 2026</h3>
+  <p>
+    Burge gained the ability to update itself without a new store release. This
+    revision <strong>adds one recipient</strong>, Expo, and describes exactly what
+    reaches it.
+  </p>
+  <ul>
+    <li>
+      <strong>New section 4.5 — Expo.</strong> Every launch now asks Expo whether
+      a newer version of the app exists. The request carries a random
+      installation identifier, the platform, the native version, the release
+      channel, and — after a crash — a short technical error message. No account
+      identifier, no search term, no location.
+    </li>
+    <li>
+      <strong>Deleting your account now also clears your recent searches from
+      the phone.</strong> They are stored on the device, so the server-side
+      deletion never reached them and they survived. Section 2.5 now lists them
+      among what the app keeps on your phone — they were not described there
+      before.
+    </li>
+    <li>
+      <strong>Crash messages are disclosed, not hidden.</strong> The update
+      mechanism sends the previous launch’s fatal error so a broken update can be
+      rolled back. It cannot be disabled separately, and Burge’s own error
+      messages are fixed strings containing no search or location data.
+    </li>
+  </ul>
+
   <h3>What changed on 8 September 2026</h3>
   <p>
     Every change in this revision <strong>reduces</strong> what we collect. Nothing
