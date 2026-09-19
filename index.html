@@ -107,7 +107,7 @@ color: #444;
 <main>
   <h1>Burge — Privacy Policy</h1>
   <p class="meta">
-    Effective date: September 8, 2026 · Last updated: September 15, 2026<br />
+    Effective date: September 8, 2026 · Last updated: September 19, 2026<br />
     Data controller: Cihan Mert Bayam, individual developer, Türkiye ·
     <a href="mailto:burgeapp@gmail.com">burgeapp@gmail.com</a>
   </p>
@@ -299,6 +299,28 @@ color: #444;
     Privacy &amp; Security → Location Services → Burge; on Android: Settings →
     Apps → Burge → Permissions → Location).
   </p>
+  <p>
+    <strong>Location suggestions.</strong> From version 1.0&nbsp;(4), the
+    location box can offer matching cities and neighbourhoods as you type.
+    Once you have typed at least three characters and then paused, the text
+    you have typed so far is sent — again through our server, which does not
+    store it — to Google, which returns a short list of matching places.
+    Nothing is sent while you are still typing, and nothing is sent for one or
+    two characters. If you pick a suggestion, one further request turns it
+    into coordinates. We keep neither the suggestions nor what you typed; the
+    location text you finally search with is kept only on your own phone
+    (section 2.5).
+  </p>
+  <p>
+    So that those suggestions are places near you rather than anywhere in the
+    world, two hints travel with that request: your phone’s language setting,
+    and a <strong>two-letter country code</strong>. The country code is worked
+    out from your IP address by the network that sits in front of our server,
+    which reports the country and nothing more precise. We do not store it,
+    and Google receives it as a country code, never as an IP address. Apart
+    from the abuse-prevention counters in section 2.3, this is the only thing
+    your IP address is used for.
+  </p>
 
   <h3>2.5 Data that stays on your device</h3>
   <p>
@@ -332,7 +354,9 @@ color: #444;
     attribution SDKs, or third-party analytics products. We do not send your
     data to any artificial intelligence or machine-learning service. We do not
     track you across apps or websites, and we do not sell or share your data
-    for advertising.
+    for advertising. The weekly reminder described in section 6 is scheduled
+    by your phone itself, so we use no push-notification service and never
+    receive a device push token.
   </p>
   <p>
     Your name and email are collected <strong>only if you choose to sign in</strong>,
@@ -407,7 +431,10 @@ color: #444;
   <p>
     <strong>Google no longer sees your IP address.</strong> Since the change
     described in section 4.2, requests arrive at Google from our server, so the
-    IP address Google records is ours, not yours.
+    IP address Google records is ours, not yours. The one exception is the
+    two-letter country code that travels with a location-suggestion request,
+    together with your phone’s language setting — see section 2.4. A country
+    code is not an IP address and cannot be narrowed back down to one.
   </p>
 
   <h3>4.2 Our own server (and why it exists)</h3>
@@ -586,6 +613,15 @@ color: #444;
     Permissions → Location. The app keeps working; you type a location instead.
   </p>
   <p>
+    <strong>Turn off the weekly reminder.</strong> From version 1.0&nbsp;(4)
+    Burge can show one reminder a week, around midday on a day chosen at
+    random. Your phone schedules it on its own: there is no push server, no
+    device token, and we cannot tell whether a reminder was ever shown or
+    tapped. Turn it off under <em>Profile → Weekly reminder</em>, or in your
+    phone’s notification settings. If you decline the permission, the app
+    never asks again.
+  </p>
+  <p>
     Under the KVKK (Article 11), the GDPR, and comparable laws, you also have
     the right to learn whether your data is processed, to request access to it,
     its correction, its erasure, a copy in a portable format, and to object to
@@ -664,6 +700,29 @@ color: #444;
     change materially affects how your data is handled, we will update the
     effective date and highlight the change here.
   </p>
+  <h3>What changed on 19 September 2026</h3>
+  <p>
+    Two features that arrive in version 1.0&nbsp;(4) are now described.
+    Nothing changed for versions already installed, and nothing new is stored
+    on our server.
+  </p>
+  <ul>
+    <li>
+      <strong>Location suggestions (section 2.4).</strong> The location box can
+      now suggest cities and neighbourhoods. What you have typed is sent to
+      Google, through our server, after three characters and a pause. Two
+      hints travel with it so the suggestions are near you: your phone’s
+      language, and a two-letter country code worked out from your IP address.
+      Neither what you typed nor the country code is stored.
+    </li>
+    <li>
+      <strong>Weekly reminder (sections 2.6 and 6).</strong> An optional
+      reminder, at most once a week. Your phone schedules it by itself — there
+      is no push service and no device token, and we do not learn whether it
+      appeared. It can be switched off in the Profile tab.
+    </li>
+  </ul>
+
   <h3>What changed on 15 September 2026</h3>
   <p>
     Clarifications only. No change to what we collect, why, or who receives it.
