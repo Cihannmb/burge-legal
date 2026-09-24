@@ -118,9 +118,10 @@ color: #444;
       <li>No advertising, no tracking, no data sold — ever.</li>
       <li><strong>Signing in is optional.</strong> Burge works fully without an account; you only sign in if you want your liked places to follow you to another phone.</li>
       <li>We keep a log of <em>what</em> was searched and <em>roughly where</em>. It carries <strong>no account identifier</strong> — nothing links those rows to you, signed in or not.</li>
+      <li>We also record anonymous <em>usage events</em> — which screens are opened and what happens at the subscription screen — grouped only by a random code that changes every visit. No account or device identifier (section 2.2b).</li>
       <li>Your exact GPS coordinates are used to run the search and are <strong>never stored on our servers</strong>.</li>
       <li>Searches now travel through our own server on their way to Google. That means <strong>Google no longer sees your IP address</strong> — it sees our server’s. We see it, but only to count requests and stop abuse, never to identify you.</li>
-      <li>You can erase everything we hold <em>that is connected to you</em>, instantly, from inside the app: <strong>Profile → Delete my account</strong>. (Search logs are not connected to you in the first place — see section 2.2.)</li>
+      <li>You can erase everything we hold <em>that is connected to you</em>, instantly, from inside the app: <strong>Profile → Delete my account</strong>. (Search logs and usage events are not connected to you in the first place — see sections 2.2 and 2.2b.)</li>
     </ul>
   </div>
 
@@ -237,6 +238,41 @@ color: #444;
   <p>
     If a search result is served from the app’s local cache, no new row is
     written.
+  </p>
+
+  <h3>2.2b Usage events (stored on our server)</h3>
+  <p>
+    To understand how the app is used — which screens people open, whether a
+    search leads to opening a place or Google Maps, and what happens when the
+    daily limit is reached (did the sign-in or subscription screen appear, was
+    it closed or completed) — the app records short <strong>usage events</strong>.
+    Each event holds only:
+  </p>
+  <ul>
+    <li>the event type and a few fixed labels, for example
+      <code>screen_viewed · Results</code>, <code>place_opened · rank 2</code>
+      or <code>paywall_result · dismissed</code>;</li>
+    <li>the app version and platform (iOS or Android);</li>
+    <li>the country, as a two-letter code derived by our hosting provider from
+      the connection — never your coordinates;</li>
+    <li>a random <strong>session code</strong> that groups the events of one
+      app visit.</li>
+  </ul>
+  <p>
+    <strong>These events carry no account identifier and no device
+    identifier.</strong> The session code is created in your phone’s memory
+    when the app opens, is never saved to storage, and is replaced every time
+    the app is reopened or returns after 30 minutes in the background — so two
+    visits cannot be linked to each other, or to you. Events never contain what
+    you searched for, the area you searched in, place names or identifiers, or
+    anything you typed; the server rejects any event that does not match a
+    fixed list of types and labels.
+  </p>
+  <p>
+    To stop the event log from being flooded, the server counts how many events
+    your account sent in the current minute. That counter holds only a number
+    and a time, never the events themselves, is overwritten every minute, and
+    is deleted within a day.
   </p>
 
   <h3>2.3 Abuse-prevention counters (stored on our server)</h3>
@@ -387,7 +423,9 @@ color: #444;
   <p>
     Search logs are used for one purpose: to understand, in aggregate, which
     searches and which areas produce weak results, so the ranking and filtering
-    can be improved. They are not used to build a profile of you, to target
+    can be improved. Usage events (section 2.2b) are used, in aggregate, to see
+    which parts of the app are used and where people give up, so the app can be
+    made simpler. Neither is used to build a profile of you, to target
     advertising, or to make any decision about you.
   </p>
   <p>
@@ -406,7 +444,7 @@ color: #444;
   <ul>
     <li>
       <strong>Türkiye (KVKK, Law No. 6698).</strong> The data controller is the
-      developer named above. Search logs are processed under Article 5(2)(f) —
+      developer named above. Search logs and usage events are processed under Article 5(2)(f) —
       the controller’s legitimate interests — as the processing is necessary to
       operate and improve the service and does not harm your fundamental rights.
       Location is processed on the basis of your <strong>explicit
@@ -414,7 +452,7 @@ color: #444;
     </li>
     <li>
       <strong>European Economic Area and the United Kingdom (GDPR).</strong> Our
-      legal basis for search logs is <strong>legitimate interest</strong>
+      legal basis for search logs and usage events is <strong>legitimate interest</strong>
       (Article 6(1)(f)) in operating and improving the app. Location is
       processed on the basis of your <strong>consent</strong> (Article 6(1)(a)),
       which you give through your phone’s location permission prompt (iOS or
@@ -597,6 +635,12 @@ color: #444;
     out — and nothing personal in them to delete.
   </p>
   <p>
+    <strong>Usage events</strong> (section 2.2b) are likewise kept for no longer
+    than <strong>12 months</strong> and deleted automatically by the same kind
+    of scheduled job; the per-minute counter that limits them is deleted within
+    one day.
+  </p>
+  <p>
     <strong>Abuse-prevention counters</strong> (section 2.3, including IP addresses) are kept for <strong>30 days</strong> and then deleted.
   </p>
   <p>
@@ -613,8 +657,8 @@ color: #444;
     in with Google), your liked places and your daily search counter. It also
     erases the recent searches and the approximate last location stored on
     this phone (section 2.5). It does
-    <em>not</em> remove search logs — not because we keep them from you, but
-    because nothing marks which ones would be yours. It takes effect
+    <em>not</em> remove search logs or usage events — not because we keep them
+    from you, but because nothing marks which ones would be yours. It takes effect
     immediately, requires no approval from us, and cannot be undone — signing in
     again with the same Google or Apple account will not bring any of it back.
     You can carry on using Burge straight afterwards; a fresh anonymous account
@@ -723,9 +767,9 @@ color: #444;
   </p>
   <h3>What changed on 24 September 2026</h3>
   <p>
-    Location suggestions got better at finding the place you mean. This
-    reaches the app in a future update; nothing changed for the version you
-    have installed, and nothing new is stored on our server.
+    Location suggestions got better at finding the place you mean, and we
+    describe a new, anonymous usage log. Both reach the app in a future
+    update; nothing changed for the version you have installed.
   </p>
   <ul>
     <li>
@@ -739,7 +783,16 @@ color: #444;
       1&nbsp;km is kept on your phone and sent with suggestion requests so that
       nearby places come first. It is never stored on our server, the app does
       not ask for location permission for it, and deleting your account erases
-      it.
+      it. Neither of these suggestion changes stores anything new on our
+      server.
+    </li>
+    <li>
+      <strong>Anonymous usage events (new section 2.2b; sections 3, 5 and
+      6).</strong> The app will record short events such as which screen was
+      opened or whether the subscription screen was closed, with the app
+      version and country. They carry no account or device identifier — only a
+      random code that changes every visit — never contain what you searched
+      for or where, and are deleted after 12 months.
     </li>
   </ul>
 
