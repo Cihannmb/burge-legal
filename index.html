@@ -107,7 +107,7 @@ color: #444;
 <main>
   <h1>Burge — Privacy Policy</h1>
   <p class="meta">
-    Effective date: September 8, 2026 · Last updated: September 24, 2026<br />
+    Effective date: September 8, 2026 · Last updated: September 30, 2026<br />
     Data controller: Cihan Mert Bayam, individual developer, Türkiye ·
     <a href="mailto:burgeapp@gmail.com">burgeapp@gmail.com</a>
   </p>
@@ -317,6 +317,21 @@ color: #444;
     deleting and recreating an account, and the protection would be pointless.
     The counters expire on their own within 30 days and contain no record of
     what you searched for.
+  </p>
+  <p>
+    <strong>Free searches on your iPhone (Apple DeviceCheck).</strong> Burge
+    gives each iPhone a small number of free searches. So that deleting and
+    reinstalling the app does not reset them, we use Apple’s
+    <a href="https://developer.apple.com/documentation/devicecheck">DeviceCheck</a>
+    service: when you search for free, your phone creates a temporary, encrypted
+    token, our server passes it to Apple, and Apple keeps two bits for your
+    device that mean only one thing — how many free searches have been used
+    (0 to 3). We never see a device identifier and we do not store the token;
+    it cannot be used to identify you and is thrown away after the request.
+    The two bits contain no name, account, location or search, and are kept by
+    Apple for our app only. Our legal basis is legitimate interest in keeping
+    the free tier from being abused (GDPR Article 6(1)(f); KVKK Article
+    5(2)(f)). Subscribers are not counted this way.
   </p>
 
   <h3>2.4 Location</h3>
@@ -533,6 +548,11 @@ color: #444;
     the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.
     We receive crash reports only in aggregated, anonymous form, and only if you
     have enabled sharing in your device settings.
+  </p>
+  <p>
+    On iPhone, Apple also provides the DeviceCheck service we use to count free
+    searches per device (section 2.3). Apple stores two bits for your device;
+    no personal information is shared with Apple for this.
   </p>
 
   <h3>4.5 Expo (over-the-air app updates)</h3>
@@ -765,6 +785,22 @@ color: #444;
     change materially affects how your data is handled, we will update the
     effective date and highlight the change here.
   </p>
+  <h3>What changed on 30 September 2026</h3>
+  <p>
+    This reaches the app in a future update; nothing changed for the version
+    you have installed.
+  </p>
+  <ul>
+    <li>
+      <strong>Free searches counted per device (sections 2.3 and 4.4).</strong>
+      Free searches will be a small total per iPhone instead of a daily
+      allowance. To stop reinstalling from resetting them, Apple’s DeviceCheck
+      service stores two bits for your device meaning “how many free searches
+      were used”. We receive no device identifier and store nothing new about
+      you.
+    </li>
+  </ul>
+
   <h3>What changed on 24 September 2026</h3>
   <p>
     Location suggestions got better at finding the place you mean, and we
